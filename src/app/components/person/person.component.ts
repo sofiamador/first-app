@@ -14,13 +14,13 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './person.component.css'
 })
 export class PersonComponent {
-  person1 = new Person("Eran","Zahavi","eran@",37)
-  person2 = new Person("Dor","Perez","dor@",19)
-  person3 = new Person("Dor","Turgeman","dort@",20)
-  person4 = new Person("Eran","Levy","eran@",20)
+  person1 = new Person(0,"Eran","Zahavi","eran@",37)
+  person2 = new Person(1,"Dor","Perez","dor@",19)
+  person3 = new Person(2,"Dor","Turgeman","dort@",20)
+  person4 = new Person(3,"Eran","Levy","eran@",20)
   personsArray = [this.person1,this.person2,this.person3,this.person4]
 
-  currentPerson:Person = new Person("Dan","Cohen","dan@",22,
+  currentPerson:Person = new Person(5,"Dan","Cohen","dan@",22,
   [new Phone("123",PhoneType.Home),new Phone("456",PhoneType.Mobile)])
 
   @Input()

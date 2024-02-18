@@ -22,9 +22,6 @@ import { RouterModule } from '@angular/router';
     imports: [HeaderComponent, BindingComponent, PersonComponent, NgifDemoComponent, ListComponent, CommonModule, ButtonsComponent, PersonListComponent, PipesComponent,RouterModule]
 })
 export class AppComponent {
-  person1 = new Person("Eran","Zahavi","eran@",37)
-  person2 = new Person("Dor","Perez","dor@",19)
-  person3 = new Person("Eran","Levy","eran@",24,[new Phone("123",PhoneType.Home)])
-  personArray:Person[]= [this.person1,this.person2,this.person3]
+
 
 }

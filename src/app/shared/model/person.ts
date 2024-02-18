@@ -3,7 +3,7 @@ import { Phone } from "./phone";
 export class Person {
     phones: Phone[] = [];
    
-     constructor(public firstName: string, public lastName: string, public email: string,
+     constructor(public id:number,public firstName: string, public lastName: string, public email: string,
      public age?: number, phones?: Phone[]) {
        if (phones) {
          this.phones = phones;
