@@ -1,0 +1,11 @@
+<h2>Person details</h2>
+<p>Full Name: {{currentPerson.fullName()}}</p>
+<p *ngIf="isEmailVisible">Email: {{currentPerson.email}}</p>
+<p>Age:{{currentPerson.age}}</p>
+<div *ngIf = "currentPerson.phones.length>0">
+<h3>Phones</h3>
+    <div *ngFor="let phone of currentPerson.phones">
+        Number: {{phone.number}} Type: {{phone.type}}
+    </div>
+</div>
+<button mat-raised-button color="primary" (click)="toggleEmail()">toggle email</button>

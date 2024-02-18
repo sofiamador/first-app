@@ -1,0 +1,12 @@
+<div>
+    <div>Product Name: {{ productName }}</div>
+    <div>Total Price : {{ quantity * price}}</div>
+</div>
+<div>
+    Today's date is: {{ getTodayDateAsString() }}
+</div>
+<button 
+    (click)="handleButtonClick()"
+    [disabled]="isDisabled">
+    Click me!
+</button>
