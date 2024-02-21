@@ -10,6 +10,7 @@ import { BindingComponent } from './components/binding/binding.component';
 export const routes: Routes = [   
 
 {path: '', component: PersonListComponent},
-{path: 'forms/:id', component: FormsDemoComponent},
-{path: 'formsnew', component: FormsDemoComponent},
+{path: 'person/:idString', component: FormsDemoComponent},
+{path: 'newperson', component: FormsDemoComponent},
+
 ];

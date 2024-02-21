@@ -6,35 +6,35 @@ import { Person } from '../shared/model/person';
 })
 export class PersonService {
   persons = new Map<number, Person>();
-  nextId = 0;
+  nextId = 2;
   constructor(){
-    this.persons.set(4,new Person(4,"sds","sds","sds@sdcsd",2))
-    this.persons.set(5,new Person(5,"dan","rr","dan@sdcsd",2))
+    this.persons.set(0,new Person(0,"dan","levy","dan@dd",33))
+    this.persons.set(1,new Person(1,"dana","cohen","dana@dd",24))
   }
 
-
- list(): Person[] {
-  return Array.from(this.persons.values());
-}
-
-get(id: number): Person | undefined {
+  list(): Person[] {
+    return Array.from(this.persons.values());
+  }
+ 
+ get(id: number): Person | undefined {
   return this.persons.get(id);
-}
-
-delete(id: number): void {
-  this.persons.delete(id);
-}
-
-update(person: Person): void {
-  if (this.persons.has(person.id)) {
-    this.persons.set(person.id, person);
   }
-}
+
+  delete(id: number): void {
+    this.persons.delete(id);
+  }
+  
+  update(person: Person): void {
+    if (this.persons.has(person.id)) {
+      this.persons.set(person.id, person);
+    }
+  }
 
   add(newPersonData:Person) {
     newPersonData.id = this.nextId
     this.persons.set(this.nextId, newPersonData);
     this.nextId++;
     }
+ }
  
-}
+

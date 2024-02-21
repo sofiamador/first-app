@@ -8,6 +8,8 @@ import { Person } from '../../shared/model/person';
 import { MatIconModule } from '@angular/material/icon';
 import { PhoneType } from '../../shared/model/phone-type';
 import { Phone } from '../../shared/model/phone';
+import { Router } from '@angular/router';
+import { PersonService } from '../../services/person.service';
 
 
 @Component({
@@ -18,31 +20,33 @@ import { Phone } from '../../shared/model/phone';
   styleUrl: './forms-demo.component.css'
 })
 export class FormsDemoComponent implements OnInit{
+  constructor(private personService: PersonService, private router: Router) {}
+
+
 
   @ViewChild('phonesGroup') phonesGroup? : NgModelGroup;
-  
-
-  persons:Person[] = []
-
-
-  @Input()
-  id?:number
-
-  currentPerson! : Person;
+  @Input() idString?:string;
+  currentPerson: Person = new Person(0,'','','')
 
   ngOnInit(): void {
-    if (this.id && (this.id < this.persons.length) && (this.id >= 0)) {
-      this.currentPerson = this.persons[this.id];
-    } else {
-      this.currentPerson = new Person(0,'','','')
-    }
-  }
-  
+    if (this.idString) {
+      let id:number = parseInt(this.idString);
+      const person = this.personService.get(id);     
+      if (person) {
+        this.currentPerson = person;
+      }
+    }}
 
-  onSubmitRegistration() {
-    console.log("Form submitted!");
-    console.log(this.currentPerson);
+  
+ onSubmitRegistration() {
+   console.log("Form submitted!");
+   if (this.idString){
+     this.personService.update(this.currentPerson)}
+   else{
+     this.personService.add(this.currentPerson)}
+	this.router.navigate(['/']);
   }
+
 
   addPhoneNumber() {
     this.currentPerson.phones.push(new Phone("", PhoneType.Mobile));
